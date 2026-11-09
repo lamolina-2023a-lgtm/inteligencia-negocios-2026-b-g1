@@ -1,30 +1,46 @@
-# Proyecto de Aula: Inteligencia de Negocios - EcoHogar del Huila (Fase 1)
+# Actividad Calificable Corte 3: Dashboard Interactivo con Narrativa
 
-## 1. Ficha del Proyecto
-- **Institución:** Corporación Universitaria del Huila (CORHUILA)
-- **Programa Académico:** Ingeniería Ambiental
-- **Asignatura:** Inteligencia de Negocios
-- **Integrantes:** 
-  - Larissa Alexandra Molina Borja
-  - Yury Lorena Castañeda Cedeño
-- **Docente:** Jesús Ariel González Bonilla
-- **Empresa Objeto de Estudio:** EcoHogar del Huila (Comercializadora de Electrodomésticos)
-- **Periodo Evaluado:** Año 2025 (12 meses / 1.050 registros transaccionales)
+- **Estudiante:** Larissa Alexandra Molina Borja  
+- **Asignatura:** Inteligencia de Negocios — CORHUILA  
+- **Docente:** Jesús Ariel González Bonilla  
+- **Semana:** 12-week (Corte 3 - Semana 4)  
+- **Dataset Aplicado:** EcoHogar del Huila  
 
 ---
 
-## 2. Planteamiento del Problema
-Actualmente, la directiva de EcoHogar del Huila enfrenta incertidumbre al asignar su presupuesto promocional y la distribución de inventarios entre sus sedes físicas (Neiva Centro y Neiva Norte) y sus canales comerciales (Mostrador y Domicilio). Al no disponer de una medición centralizada del **Margen Bruto real (%)**, la empresa corre el riesgo de tomar malas decisiones operativas, como destinar inventario de alto valor o promociones a canales de baja rentabilidad durante el primer semestre de 2026.
+## 1. Visuales y Buenas Prácticas Aplicadas
+- **Tarjeta KPI Principal:** Visualización directa del volumen global de Ventas Totales ($ 5,36 mill.).
+- **Gráfico de Barras Horizontales:** Comparativa de Ventas Totales por Sede/Canal (`Nombre_Sede`), destacando el liderazgo operativo de *Sede Neiva Centro*, seguido de *Canal Domicilios* y *Sede Neiva Norte*.
+- **Gráfico de Anillo:** Distribución porcentual y monetaria por `Tipo_Cliente` (Empresarial vs. Particular) manteniendo una baja densidad de tinta y etiquetas de datos claras.
 
 ---
 
-## 3. Pregunta de Investigación
-¿Qué unidad comercial (Sede Neiva Centro o Neiva Norte) y qué tipo de canal de distribución (Mostrador o Domicilio) dejaron el mayor **Margen Bruto (%)** durante el año 2025 en la empresa EcoHogar del Huila, y dónde conviene concentrar las promociones e inventario para el primer semestre de 2026?
+## 2. Elementos de Interactividad
+- **Segmentadores e Interacción:** Filtrado dinámico habilitado a través de las dimensiones relacionales (`DimCliente`, `DimProducto`, `DimSede`).
+- **Modelo Relacional:** Esquema en Estrella que permite la propagación de filtros desde las dimensiones hacia la tabla de hechos `FactVentas`.
+- **Filtrado Cruzado:** Sincronización interactiva entre el gráfico de anillo y el gráfico de barras al hacer clic en los segmentos.
 
 ---
 
-## 4. Indicadores Clave de Rendimiento (KPIs)
+## 3. Narrativa de Negocio (3 Momentos)
+1. **Contexto:** Evaluación del desempeño transaccional comercial de EcoHogar del Huila alcanzando un total consolidado de **$ 5,36 millones** en ventas.
+2. **Hallazgo (Dato Resaltado):** El segmento de clientes **Empresarial representa la gran mayoría de los ingresos con un 88.32% ($ 4,73 mill.)**, mientras que los clientes Particulares aportan el 11.68% ($ 0,63 mill.).
+3. **Recomendación:** Priorizar las alianzas comerciales B2B y fortalecer la capacidad de atención en la Sede Neiva Centro y el Canal Domicilios para el primer trimestre de 2026.
 
-### KPI Principal: Margen Bruto (%)
-```dax
-Margen Bruto % = DIVIDE([Ventas Totales] - [Costo Total], [Ventas Totales], 0) * 100
+---
+
+## 4. Dashboard & Insight (English Section)
+This interactive Business Intelligence dashboard evaluates the sales performance metrics for EcoHogar del Huila using a star schema data model. Total revenue reached $5.36 million, driven primarily by corporate operations across physical and delivery channels. A key insight reveals that Corporate customers ("Empresarial") generate 88.32% of total sales revenue ($4.73 million), while retail individual customers represent only 11.68% ($0.63 million). Cross-filtering capabilities allow dynamic exploration across branches, with Neiva Centro leading overall branch performance. Therefore, management should focus Q1 2026 promotional strategies on retaining high-volume corporate clients while optimizing delivery logistics.
+
+---
+
+## 5. Capturas de Evidencia
+
+### Limpieza de Datos (Power Query)
+![ETL Power Query](./Anexo_1_ETL_PowerQuery.png)
+
+### Modelo de Datos (Estrella)
+![Modelo Estrella](./Anexo_2_Modelo_Estrella.png)
+
+### Dashboard Final e Interactividad
+![Dashboard Final](./Anexo_3_Dashboard_Final.png)
